@@ -1,0 +1,55 @@
+{
+  "name": "estrellagold",
+  "version": "1.0.0",
+  "description": "Site vitrine professionnel pour Café Estrella Gold - Marrakech",
+  "main": "server/app.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "client:dev": "vite",
+    "server:dev": "nodemon server/app.js",
+    "build": "npm run optimize:images:check && vite build",
+    "build:force": "npm run optimize:images && vite build",
+    "preview": "vite preview",
+    "start": "node server/app.js",
+    "test": "echo \"Tests à implémenter\" && exit 0",
+    "optimize:images": "node scripts/optimize-images.js",
+    "optimize:images:check": "node -e \"const fs=require('fs'); fs.existsSync('./assets/images') && require('./scripts/optimize-images.js')\"",
+    "docker:build": "docker build -t estrella-gold .",
+    "docker:run": "docker run -p 3000:80 estrella-gold",
+    "docker:dev": "docker-compose up --build"
+  },
+  "keywords": [
+    "cafe",
+    "estrella-gold",
+    "marrakech",
+    "vue",
+    "nodejs",
+    "express",
+    "restaurant",
+    "vitrine"
+  ],
+  "author": "Estrella Gold",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "bcryptjs": "^3.0.2",
+    "compression": "^1.8.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.1",
+    "vite": "^7.1.9",
+    "vue": "^3.5.22",
+    "vue-router": "^4.6.3"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.10",
+    "sharp": "^0.33.5"
+  }
+}

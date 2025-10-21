@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://votre-domaine.com/sitemap.xml
+
+# Optimisations pour les moteurs de recherche
+Crawl-delay: 1
+
+# Interdire l'accès aux fichiers sensibles
+Disallow: /server/
+Disallow: /node_modules/
+Disallow: /.env
+Disallow: /src/
+Disallow: /dist/assets/*.map
